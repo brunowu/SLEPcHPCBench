@@ -44,7 +44,7 @@ exec: hpc_slepc_bench.o
 	-@echo "========================================="
 
 runa:
-	-@${MPIEXEC} -np ${MPI_NODES} ./slepcbench -mfile ${MDIR}/${MAT} ${LOG_VIEW} -eps_ncv ${ARNOLDI_NCV} -eps_type arnoldi -eps_true_residual -eps_largest_imaginary -eps_nev ${ARNOLDI_NBEIGEN} -eps_tol ${ARNOLDI_PRECISION} ${ARNOLDI_MONITOR} -eps_max_it 50 
+	-@${MPIEXEC} -np ${MPI_NODES} ./slepcbench.exe -mfile ${MDIR}/${MAT} ${LOG_VIEW} -eps_ncv ${ARNOLDI_NCV} -eps_type arnoldi -eps_true_residual -eps_largest_imaginary -eps_nev ${ARNOLDI_NBEIGEN} -eps_tol ${ARNOLDI_PRECISION} ${ARNOLDI_MONITOR} -eps_max_it 50 
 
 #runb:
 #	./petscbench -ksp_gmres_restart 200 ${KSP_MONITOR} -ksp_rtol 1e-100 -ksp_divtol 1e1000 -ksp_max_it 20000 -pc_type none -ksp_atol 1e-10 -mfile ./utm300.mtx_300x300_3155nnz -log_view
