@@ -1,5 +1,5 @@
 #include "petsc.h"
-#include <slepceps.h>
+#include "slepceps.h"
 
 PetscErrorCode loadInputs(Mat * A, Vec * x);
 PetscErrorCode loadMatrix(Mat * A);

@@ -1,4 +1,4 @@
-#include "hpc_slepc_bench.h"
+#include "hpc_slepc_bench.hpp"
 
 
 static const char help[] = "Solve Non-Hermitian eigenvalues problem by Arnoldi, options array_in_received_buffer\n\
