@@ -13,6 +13,9 @@ int main(int argc, char **argv){
 	PetscInt its, nev, nconv;
 	EPSType type;
 
+	ST st;
+	PetscScalar shift;
+
 	ierr=SlepcInitialize(&argc,&argv,PETSC_NULL,help);CHKERRQ(ierr);
 	PetscPrintf(PETSC_COMM_WORLD,"\n\n]> Initializing SLEPc\n");
 	
@@ -28,6 +31,13 @@ int main(int argc, char **argv){
 	ierr = EPSSetFromOptions(eps);CHKERRQ(ierr);
 
 	PetscPrintf(PETSC_COMM_WORLD,"]> Krylov Solver settings done\n");
+
+	EPSGetST(eps,&st);
+
+	shift = -0.10+PETSC_i*0.0;
+
+	STSetShift(st,shift);
+	STSetFromOptions(st);
 
 	/*Solve the problem*/
 	PetscPrintf(PETSC_COMM_WORLD,"]> Krylov Solver Launching solving process\n");
